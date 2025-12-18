@@ -12,6 +12,7 @@ export interface INews extends Document {
 	content: string;
 	excerpt: string;
 	featuredImage?: string;
+	images: string[];
 	category: string;
 	tags: string[];
 	author: mongoose.Types.ObjectId;
@@ -48,6 +49,10 @@ const newsSchema = new Schema<INews>(
 		},
 		featuredImage: {
 			type: String,
+		},
+		images: {
+			type: [String],
+			default: [],
 		},
 		category: {
 			type: String,
